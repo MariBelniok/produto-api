@@ -35,8 +35,43 @@ public class ProdutoService {
         return produtoRepository.findByNomeEndingWith(suffix);
     }
 
+    public List<Produto> findByPreco(Double preco) {
+        return produtoRepository.findByPreco(preco);
+    }
+    public List<Produto> findByPrecoGreaterThan(Double preco) {
+        return produtoRepository.findByPrecoGreaterThan(preco);
+    }
+    public List<Produto> findByPrecoLessThan(Double preco) {
+        return produtoRepository.findByPrecoLessThan(preco);
+    }
+    public Double findTotalPreco() {
+        return produtoRepository.findTotalPreco();
+    }
+
+    public List<Produto> findByQuantidade(Double quantidade){
+        return produtoRepository.findByQuantidade(quantidade);
+    }
+    public List<Produto> findByQuantidadeGreaterThan(Double quantidade){
+        return produtoRepository.findByQuantidadeGreaterThan(quantidade);
+    }
+    public List<Produto> findByQuantidadeLessThan(Double quantidade){
+        return produtoRepository.findByQuantidadeLessThan(quantidade);
+    }
+
     public List<Produto> filrarPorStatus(String status) {
         return produtoRepository.findByStatus(status);
+    }
+
+    public List<Produto> findByStatusIsNull() {
+        return produtoRepository.findByStatusIsNull();
+    }
+    public List<Produto> findByPrecoAndStatus(Double preco, String status) {
+        return produtoRepository.findByPrecoAndStatus(preco, status);
+    }
+
+    // Método para trazer o número total de produtos
+    public Long count() {
+        return produtoRepository.count();
     }
 
     public Optional<Produto> obter(Long id) {
